@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>uchuhimo&#39;s blog</title>
+  
+  
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://uchuhimo.me/"/>
+  <updated>2017-05-08T13:04:05.000Z</updated>
+  <id>http://uchuhimo.me/</id>
+  
+  <author>
+    <name>uchuhimo</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>deterministic 和 determinat 有什么区别？</title>
+    <link href="http://uchuhimo.me/2017/05/08/determinat-vs-deterministic/"/>
+    <id>http://uchuhimo.me/2017/05/08/determinat-vs-deterministic/</id>
+    <published>2017-05-08T11:06:05.000Z</published>
+    <updated>2017-05-08T13:04:05.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;deterministic 和 determinat 翻译过来都是“确定性的”，但这并不代表它们可以互相混用，在并行计算的语境下，它们有着一些根本的差别。&lt;/p&gt;
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>流计算核心概念解析之 window</title>
+    <link href="http://uchuhimo.me/2017/04/19/introduce-the-concept-of-windowing-in-streaming-processing/"/>
+    <id>http://uchuhimo.me/2017/04/19/introduce-the-concept-of-windowing-in-streaming-processing/</id>
+    <published>2017-04-19T08:14:54.000Z</published>
+    <updated>2017-04-19T09:02:00.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;流计算是当前备受关注的一个大数据研究与应用领域，旨在实时或近实时地处理大量无界数据。区别于批处理，流处理中处理的数据集是无界的，所以聚集操作（如 reduce、sum、count 等）无法应用于整个数据集，否则聚集操作的结果可能永远都不会输出。我们需要将无界的数据集切分成一些有界的片段，将聚集操作应用于这些片段，从而能够在无界的数据集上得到持续的聚集操作输出结果，这一切分过程即被称为 window。流计算领域的许多概念、系统设计、实现细节都围绕着 window 展开，window 的支持程度也是我们对众多的流计算框架进行选型的重要依据。要理解 window，我们需要回答以下关键问题：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;如何根据window进行数据划分？&lt;/li&gt;
+&lt;li&gt;如何定义在window相关的操作中涉及的时间概念？&lt;/li&gt;
+&lt;li&gt;如何输出基于window的操作的处理结果？&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;下文将逐一回答这些关键问题，并在最后比较当前较热门的各流计算框架对 window 的支持程度。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="流计算" scheme="http://uchuhimo.me/categories/%E6%B5%81%E8%AE%A1%E7%AE%97/"/>
+    
+    
+      <category term="window" scheme="http://uchuhimo.me/tags/window/"/>
+    
+      <category term="streaming" scheme="http://uchuhimo.me/tags/streaming/"/>
+    
+      <category term="bigdata" scheme="http://uchuhimo.me/tags/bigdata/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Git Cheat Sheet</title>
+    <link href="http://uchuhimo.me/2017/04/18/git-cheat-sheet/"/>
+    <id>http://uchuhimo.me/2017/04/18/git-cheat-sheet/</id>
+    <published>2017-04-18T04:51:08.000Z</published>
+    <updated>2017-04-19T06:40:00.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;git-本地更改操作&quot;&gt;Git 本地更改操作&lt;/h2&gt;
+&lt;h3 id=&quot;初始化&quot;&gt;初始化&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;初始化一个 Git 仓库：&lt;code&gt;git init&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;提交修改&quot;&gt;提交修改&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;添加文件到暂存区：&lt;code&gt;git add &amp;lt;file&amp;gt;&lt;/code&gt;
+&lt;ul&gt;
+&lt;li&gt;添加所有修改到暂存区：&lt;code&gt;git add .&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;将暂存区的修改提交到版本库：&lt;code&gt;git commit&lt;/code&gt; -&amp;gt; 编辑 commit message -&amp;gt; 保存
+&lt;ul&gt;
+&lt;li&gt;commit message 较简单时，可以：&lt;code&gt;git commit -m &amp;quot;&amp;lt;message&amp;gt;&amp;quot;&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;为文件添加执行权限，并将修改添加到暂存区：&lt;code&gt;git update-index --chmod=+x &amp;lt;file&amp;gt;&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;回退修改&quot;&gt;回退修改&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;回退工作区的修改：&lt;code&gt;git checkout -- &amp;lt;file&amp;gt;&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;回退工作区的修改，但保存现场：&lt;code&gt;git stash&lt;/code&gt;
+&lt;ul&gt;
+&lt;li&gt;恢复现场：&lt;code&gt;git stash pop&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;查看保存的现场：&lt;code&gt;git stash list&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;回退暂存区的修改到工作区：&lt;code&gt;git reset HEAD &amp;lt;file&amp;gt;&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;回退版本库的修改到工作区：&lt;code&gt;git reset &amp;lt;commit&amp;gt;&lt;/code&gt; 或 &lt;code&gt;git reset –-mixed &amp;lt;commit&amp;gt;&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;回退版本库的修改到暂存区：&lt;code&gt;git reset –-soft &amp;lt;commit&amp;gt;&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;回退版本库的修改（&lt;strong&gt;不保留&lt;/strong&gt;）：&lt;code&gt;git reset --hard &amp;lt;commit&amp;gt;&lt;/code&gt;
+&lt;ul&gt;
+&lt;li&gt;如果错误执行了该回退操作，可以通过 &lt;code&gt;git reflog&lt;/code&gt; 查看命令历史，命令历史中记载了回退前的 commit id，可以执行 &lt;code&gt;git reset --hard &amp;lt;commit&amp;gt;&lt;/code&gt; 回退该回退操作&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;回退所有未被跟踪的文件：&lt;code&gt;git clean -df&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;删除文件&quot;&gt;删除文件&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;从暂存区 + 工作区中删除：&lt;code&gt;git rm &amp;lt;file&amp;gt;&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;从暂存区中删除：&lt;code&gt;git rm --cached &amp;lt;file&amp;gt;&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;跟踪文件&quot;&gt;跟踪文件&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;强制跟踪指定文件：&lt;code&gt;git update-index --no-assume-unchanged &amp;lt;file&amp;gt;&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;强制不跟踪指定文件：&lt;code&gt;git update-index --assume-unchanged &amp;lt;file&amp;gt;&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+    
+    </summary>
+    
+      <category term="Cheat Sheet" scheme="http://uchuhimo.me/categories/Cheat-Sheet/"/>
+    
+    
+      <category term="git" scheme="http://uchuhimo.me/tags/git/"/>
+    
+      <category term="cheat-sheet" scheme="http://uchuhimo.me/tags/cheat-sheet/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>使用 Travis 自动部署博客到 Github Pages</title>
+    <link href="http://uchuhimo.me/2017/04/15/continuous-deployment-blog-to-github-pages-with-travis/"/>
+    <id>http://uchuhimo.me/2017/04/15/continuous-deployment-blog-to-github-pages-with-travis/</id>
+    <published>2017-04-15T13:12:50.000Z</published>
+    <updated>2017-04-15T18:23:00.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;由于博客的源码和生成站点位于不同的代码仓库中（源码位于 &lt;a href=&quot;https://github.com/uchuhimo/uchuhimo.me&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;uchuhimo/uchuhimo.me&lt;/a&gt;，生成的静态站点位于 &lt;a href=&quot;https://github.com/uchuhimo/uchuhimo.github.io&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;uchuhimo/uchuhimo.github.io&lt;/a&gt;，即个人 GitHub Pages 的仓库），文章的发布过程需要提交两次。作为拥有懒惰这种美德的程序员，自然会开始折腾只需要提交一次、博客就自动部署到 GitHub Pages 上的方法——这里就轮到 Travis 登场了。&lt;/p&gt;
+&lt;p&gt;接下来，我会先介绍自动部署的原理，再讲解搭建的过程。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="创世记" scheme="http://uchuhimo.me/categories/%E5%88%9B%E4%B8%96%E8%AE%B0/"/>
+    
+    
+      <category term="blog" scheme="http://uchuhimo.me/tags/blog/"/>
+    
+      <category term="Hexo" scheme="http://uchuhimo.me/tags/Hexo/"/>
+    
+      <category term="Travis" scheme="http://uchuhimo.me/tags/Travis/"/>
+    
+      <category term="GitHub" scheme="http://uchuhimo.me/tags/GitHub/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>如何使用 Hexo 和 GitHub Pages 搭建这个博客</title>
+    <link href="http://uchuhimo.me/2017/04/11/genesis/"/>
+    <id>http://uchuhimo.me/2017/04/11/genesis/</id>
+    <published>2017-04-11T08:29:50.000Z</published>
+    <updated>2017-04-21T19:02:00.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;一个博客的搭建过程分为三步：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;编写：包含内容的书写与格式的配置&lt;/li&gt;
+&lt;li&gt;构建：从编写的原始内容生成可发布的最终内容&lt;/li&gt;
+&lt;li&gt;发布：让待发布的内容对读者可见&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;依托于博客平台（如博客园、新浪博客等）发布内容的用户只需要关注编写部分，但要搭建一个独立的个人博客则以上三方面都需要关心。幸运的是，现在有大量的工具帮助我们简化这个过程：丰富的 Markup 语言简化了编写；强大的静态站点生成器简化了构建；友好的托管平台简化了发布。&lt;/p&gt;
+&lt;p&gt;这个博客的诞生也得益于这些工具：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;编写：使用 Markdown，内置大量层级、列表、超链接、代码等的简便语法支持&lt;/li&gt;
+&lt;li&gt;构建：使用 Hexo，几条命令完成生成、预览、发布步骤&lt;/li&gt;
+&lt;li&gt;发布：使用 GitHub Pages 进行托管，方便又免费&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;接下来我会按以下顺序介绍如何基于这些工具完成整个博客的搭建过程：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;环境准备&lt;/li&gt;
+&lt;li&gt;Hexo 和 NexT 主题的使用&lt;/li&gt;
+&lt;li&gt;GitHub Pages 的配置与部署&lt;/li&gt;
+&lt;li&gt;绑定自定义域名（可选）&lt;/li&gt;
+&lt;li&gt;Hexo 的详细配置过程&lt;/li&gt;
+&lt;/ul&gt;
+    
+    </summary>
+    
+      <category term="创世记" scheme="http://uchuhimo.me/categories/%E5%88%9B%E4%B8%96%E8%AE%B0/"/>
+    
+    
+      <category term="blog" scheme="http://uchuhimo.me/tags/blog/"/>
+    
+      <category term="Hexo" scheme="http://uchuhimo.me/tags/Hexo/"/>
+    
+      <category term="GitHub" scheme="http://uchuhimo.me/tags/GitHub/"/>
+    
+      <category term="NexT" scheme="http://uchuhimo.me/tags/NexT/"/>
+    
+  </entry>
+  
+</feed>
